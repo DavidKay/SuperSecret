@@ -1,0 +1,17 @@
+E:\SVN\Vallejo\Vallejo\WindowsGameLibrary1\bin\x86\Debug\Fantasmo.dll
+E:\SVN\Vallejo\Vallejo\WindowsGameLibrary1\bin\x86\Debug\Fantasmo.pdb
+E:\SVN\Vallejo\Vallejo\WindowsGameLibrary1\obj\x86\Debug\Microsoft.Xna.Framework.RuntimeProfile.txt
+E:\SVN\Vallejo\Vallejo\WindowsGameLibrary1\obj\x86\Debug\Fantasmo.dll
+E:\SVN\Vallejo\Vallejo\WindowsGameLibrary1\obj\x86\Debug\Fantasmo.pdb
+E:\SVN\Vallejo\Vallejo\ExLib\bin\x86\Debug\Fantasmo.dll
+E:\SVN\Vallejo\Vallejo\ExLib\bin\x86\Debug\Fantasmo.pdb
+E:\SVN\Vallejo\Vallejo\ExLib\obj\x86\Debug\ExLib.csprojResolveAssemblyReference.cache
+E:\SVN\Vallejo\Vallejo\ExLib\obj\x86\Debug\Microsoft.Xna.Framework.RuntimeProfile.txt
+E:\SVN\Vallejo\Vallejo\ExLib\obj\x86\Debug\Fantasmo.dll
+E:\SVN\Vallejo\Vallejo\ExLib\obj\x86\Debug\Fantasmo.pdb
+C:\Users\Si\Documents\GitHub\SuperSecret\ExPlay\ExLib\bin\x86\Debug\ExLib.dll
+C:\Users\Si\Documents\GitHub\SuperSecret\ExPlay\ExLib\bin\x86\Debug\ExLib.pdb
+C:\Users\Si\Documents\GitHub\SuperSecret\ExPlay\ExLib\obj\x86\Debug\ExLib.csprojResolveAssemblyReference.cache
+C:\Users\Si\Documents\GitHub\SuperSecret\ExPlay\ExLib\obj\x86\Debug\Microsoft.Xna.Framework.RuntimeProfile.txt
+C:\Users\Si\Documents\GitHub\SuperSecret\ExPlay\ExLib\obj\x86\Debug\ExLib.dll
+C:\Users\Si\Documents\GitHub\SuperSecret\ExPlay\ExLib\obj\x86\Debug\ExLib.pdb

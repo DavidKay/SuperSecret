@@ -1,0 +1,16 @@
+e:\SVN\Vallejo\Vallejo\Frogger\Frogger\bin\x86\Debug\Frogger.exe
+e:\SVN\Vallejo\Vallejo\Frogger\Frogger\bin\x86\Debug\Frogger.pdb
+e:\SVN\Vallejo\Vallejo\Frogger\Frogger\obj\x86\Debug\Frogger.csprojResolveAssemblyReference.cache
+e:\SVN\Vallejo\Vallejo\Frogger\Frogger\obj\x86\Debug\Microsoft.Xna.Framework.RuntimeProfile.txt
+e:\SVN\Vallejo\Vallejo\Frogger\Frogger\obj\x86\Debug\Frogger.exe
+e:\SVN\Vallejo\Vallejo\Frogger\Frogger\obj\x86\Debug\Frogger.pdb
+e:\SVN\Vallejo\Vallejo\Frogger\Frogger\bin\x86\Debug\Fantasmo.dll
+e:\SVN\Vallejo\Vallejo\Frogger\Frogger\bin\x86\Debug\Fantasmo.pdb
+C:\Users\Si\Documents\GitHub\SuperSecret\ExPlay\Frogger\Frogger\bin\x86\Debug\Frogger.exe
+C:\Users\Si\Documents\GitHub\SuperSecret\ExPlay\Frogger\Frogger\bin\x86\Debug\Frogger.pdb
+C:\Users\Si\Documents\GitHub\SuperSecret\ExPlay\Frogger\Frogger\bin\x86\Debug\ExLib.dll
+C:\Users\Si\Documents\GitHub\SuperSecret\ExPlay\Frogger\Frogger\bin\x86\Debug\ExLib.pdb
+C:\Users\Si\Documents\GitHub\SuperSecret\ExPlay\Frogger\Frogger\obj\x86\Debug\Frogger.csprojResolveAssemblyReference.cache
+C:\Users\Si\Documents\GitHub\SuperSecret\ExPlay\Frogger\Frogger\obj\x86\Debug\Microsoft.Xna.Framework.RuntimeProfile.txt
+C:\Users\Si\Documents\GitHub\SuperSecret\ExPlay\Frogger\Frogger\obj\x86\Debug\Frogger.exe
+C:\Users\Si\Documents\GitHub\SuperSecret\ExPlay\Frogger\Frogger\obj\x86\Debug\Frogger.pdb

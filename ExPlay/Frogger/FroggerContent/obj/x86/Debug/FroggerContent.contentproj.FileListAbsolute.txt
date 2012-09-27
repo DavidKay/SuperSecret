@@ -1,0 +1,2 @@
+E:\SVN\Vallejo\Vallejo\Frogger\FroggerContent\obj\x86\Debug\FroggerContent.contentprojResolveAssemblyReference.cache
+C:\Users\Si\Documents\GitHub\SuperSecret\ExPlay\Frogger\FroggerContent\obj\x86\Debug\FroggerContent.contentprojResolveAssemblyReference.cache
