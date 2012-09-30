@@ -42,8 +42,8 @@ namespace Frogger.Level
 
         };
 
-        private const int LEVEL_WIDTH = 20;
-        private const int LEVEL_HEIGHT = 15;
+        private const int LEVEL_WIDTH = GraphicsManager.RESOLUTION_X / 32;
+        private const int LEVEL_HEIGHT = GraphicsManager.RESOLUTION_Y / 32;
 
         public static FloorTile[,] GetFloorTilesForLevel(int level)
         {

@@ -18,7 +18,7 @@ namespace Frogger.Actors
 
             if (this.X + this.Sprite.Width < 0)
             {
-                this.X = ExGame.SCREEN_WIDTH;
+                this.X = GraphicsManager.RESOLUTION_X;
             }
         }
 

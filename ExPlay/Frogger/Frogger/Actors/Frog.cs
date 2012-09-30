@@ -23,7 +23,7 @@ namespace Frogger.Actors
 
         private double TotalMovementAmount = 0;
 
-        private double MovementSpeed = 75; // 5 pixels per second
+        private double MovementSpeed = 75;
 
         protected override void PerformMovement(GameTime gameTime)
         {
@@ -52,6 +52,7 @@ namespace Frogger.Actors
         private void Move(MovementState movementState)
         {
             CurrentMovementState = movementState;
+            this.Sprite.Animate("JumpingFrog");
         }
 
         public override void Update(GameTime gameTime)
@@ -92,6 +93,7 @@ namespace Frogger.Actors
                 if (stopped)
                 {
                     CurrentMovementState = MovementState.None;
+                    this.Sprite.StopAnimate();
                 }
 
             }

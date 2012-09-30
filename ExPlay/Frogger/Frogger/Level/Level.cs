@@ -12,9 +12,6 @@ namespace Frogger.Level
     {
         public FloorTile[,] Tiles = new FloorTile[15, 20];
         
-        // Entity list for cars, logs etc.
-        // <insert>
-
         public int LevelNumber { get; private set; }
 
         public Level(int level)

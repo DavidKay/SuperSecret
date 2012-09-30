@@ -27,10 +27,12 @@ namespace ExLib.Objects
             movementState.Update(currentMovements);
         }
 
-        public virtual void Update(GameTime gameTime)
+        public new virtual void Update(GameTime gameTime)
         {
             CaptureMovement();
             PerformMovement(gameTime);
+
+            base.Update(gameTime);
         }
 
         protected virtual void PerformMovement(GameTime gameTime)

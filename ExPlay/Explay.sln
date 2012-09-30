@@ -7,6 +7,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FroggerContent", "Frogger\F
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExLib", "ExLib\ExLib.csproj", "{80C7DD30-BD56-4A58-A4F9-4A1F3B821BD2}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Spaceship", "Spaceship\Spaceship\Spaceship.csproj", "{ADFD0C21-76D4-4D6C-96F1-A47C404466B4}"
+EndProject
+Project("{96E2B04D-8817-42C6-938A-82C39BA4D311}") = "SpaceshipContent", "Spaceship\SpaceshipContent\SpaceshipContent.contentproj", "{5AFD4946-6AE6-43C2-A5AB-FCADB5D2730C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x86 = Debug|x86
@@ -23,6 +27,12 @@ Global
 		{80C7DD30-BD56-4A58-A4F9-4A1F3B821BD2}.Debug|x86.Build.0 = Debug|x86
 		{80C7DD30-BD56-4A58-A4F9-4A1F3B821BD2}.Release|x86.ActiveCfg = Release|x86
 		{80C7DD30-BD56-4A58-A4F9-4A1F3B821BD2}.Release|x86.Build.0 = Release|x86
+		{ADFD0C21-76D4-4D6C-96F1-A47C404466B4}.Debug|x86.ActiveCfg = Debug|x86
+		{ADFD0C21-76D4-4D6C-96F1-A47C404466B4}.Debug|x86.Build.0 = Debug|x86
+		{ADFD0C21-76D4-4D6C-96F1-A47C404466B4}.Release|x86.ActiveCfg = Release|x86
+		{ADFD0C21-76D4-4D6C-96F1-A47C404466B4}.Release|x86.Build.0 = Release|x86
+		{5AFD4946-6AE6-43C2-A5AB-FCADB5D2730C}.Debug|x86.ActiveCfg = Debug|x86
+		{5AFD4946-6AE6-43C2-A5AB-FCADB5D2730C}.Release|x86.ActiveCfg = Release|x86
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

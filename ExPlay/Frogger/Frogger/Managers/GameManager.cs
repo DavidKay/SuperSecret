@@ -25,7 +25,7 @@ namespace Frogger.Managers
         {
             GameWindow = new MainScreen();
 
-            GameViewport = new Viewport(0, 0, 320, 240, 640, 480);
+            GameViewport = new Viewport(0, 0,(int) (GraphicsManager.RESOLUTION_X * 0.5), (int) (GraphicsManager.RESOLUTION_Y * 0.5), GraphicsManager.RESOLUTION_X, GraphicsManager.RESOLUTION_Y);
 
             GameWindow.Initialise(Program.FroggerGame.Content);
         }
@@ -72,7 +72,7 @@ namespace Frogger.Managers
             Actor car = new Car()
             {
                 Sprite = GraphicsManager.GetSprite(FroggerGame.Textures.Car),
-                X = ExGame.SCREEN_WIDTH,
+                X = GraphicsManager.RESOLUTION_X,
                 Y = 230
             };
 

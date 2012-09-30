@@ -14,6 +14,8 @@ namespace ExLib.Objects
         public int X { get { return (int)Math.Round(_x, 0, MidpointRounding.ToEven); } set { _x = value; } }
         public int Y { get { return (int)Math.Round(_y,0, MidpointRounding.ToEven); } set { _y = value; } }
 
+        public bool IsBackgroundElement { get; set; }
+
         protected double _x;
         protected double _y;
 
@@ -33,5 +35,14 @@ namespace ExLib.Objects
         {
 
         }
+
+        public virtual void Update(GameTime gameTime)
+        {
+            if (Sprite != null)
+            {
+                this.Sprite.Update(gameTime);
+            }
+        }
+
     }
 }

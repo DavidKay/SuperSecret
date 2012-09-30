@@ -18,11 +18,16 @@ namespace ExLib.Managers
 
         public static SpriteBatch SpriteBatch;
 
-        public static List<Sprite> Sprites;
+        public static List<ExLib.Objects.GameTexture> Textures;
 
         public static RenderTarget2D RenderTarget;
 
-        private static List<string> _textures;
+        private static List<string> _textureNames;
+
+        private static List<Animation> _animationList;
+
+        public const int RESOLUTION_X = 640;
+        public const int RESOLUTION_Y = 480;
 
         public static int ScreenWidth
         {
@@ -40,7 +45,7 @@ namespace ExLib.Managers
             }
         }
 
-        internal static void Initialise(List<string> textures)
+        internal static void Initialise(List<string> textureNames, Func<List<Animation>> animations)
         {
             RenderTarget = new RenderTarget2D(
                 GraphicsDeviceManager.GraphicsDevice,
@@ -55,34 +60,43 @@ namespace ExLib.Managers
 
             GraphicsFolder = directory + @"\Graphics";
 
-            _textures = textures;
+            _textureNames = textureNames;
 
             LoadTextures();
+
+            _animationList = animations();
         }
 
         private static void LoadTextures()
         {
-            Sprites = new List<Sprite>();
+            Textures = new List<Objects.GameTexture>();
 
-            _textures.ForEach(c => Sprites.Add(new Sprite(c)));
+            _textureNames.ForEach(c =>
+                {
+                    string filePath = GraphicsManager.GraphicsFolder + @"\" + c + ".png";
+
+                    using (FileStream fileStream = new FileStream(filePath, FileMode.Open))
+                    {
+                        var texture = Texture2D.FromStream(GraphicsManager.GraphicsDeviceManager.GraphicsDevice, fileStream);
+
+                        GameTexture gameTexture = new GameTexture(texture, c);
+
+                        Textures.Add(gameTexture);
+                    }
+                });
         }
 
         public static void DrawSprite(Sprite sprite, Point location)
         {
             SpriteBatch.Draw(
-                sprite.Texture,
+                sprite.Texture.Texture2D,
                 new Vector2(location.X, location.Y),
                 Color.White);
         }
 
-        public static Sprite GetSprite(string texturesEnum)
+        public static GameTexture GetTexture(string name)
         {
-            return Sprites.Single(c => c.Name == texturesEnum);
-        }
-
-        public static Sprite GetSprite(Enum texturesEnum)
-        {
-            return Sprites.Single(c => c.Name == texturesEnum.ToString());
+            return Textures.SingleOrDefault(c => c.TextureName == name);
         }
 
         internal static void BeginDraw(GameTime gameTime)
@@ -110,6 +124,21 @@ namespace ExLib.Managers
 
             SpriteBatch.End();
 
+        }
+
+        internal static Animation GetAnimation(string AnimationName)
+        {
+            return _animationList.Single(c => c.Name == AnimationName);
+        }
+
+        public static Sprite GetSprite(string textureName)
+        {
+            return new Sprite(GetTexture(textureName));
+        }
+
+        public static Sprite GetSprite(Enum textureName)
+        {
+            return GetSprite(textureName.ToString());
         }
     }
 }

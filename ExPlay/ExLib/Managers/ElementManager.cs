@@ -20,14 +20,15 @@ namespace ExLib.Managers
             GameElements = new List<Element>();
         }
 
-        //public static void Draw(GameTime gameTime)
-        //{
-        //    GameElements.ForEach(c => c.Draw(gameTime));
-        //}
+        // only draw decorative items
+        public static void Draw(GameTime gameTime)
+        {
+            GameElements.Where(c => c.IsBackgroundElement).ToList().ForEach(c => c.Draw(gameTime));
+        }
 
         internal static void Update(GameTime gameTime)
         {
-            
+            GameElements.ForEach(c => c.Update(gameTime));
         }
 
         public static void Empty()
@@ -89,6 +90,9 @@ namespace ExLib.Managers
 
         public static bool CheckIntersect(Element a, Rectangle rect)
         {
+            if (a.IsBackgroundElement) 
+                return false;
+
             var ax = a.X;
             var ay = a.Y;
             var aw = a.Sprite.Width;

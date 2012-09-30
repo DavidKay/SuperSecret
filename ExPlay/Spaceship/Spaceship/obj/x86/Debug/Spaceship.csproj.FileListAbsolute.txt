@@ -1,0 +1,8 @@
+C:\Users\Si\Documents\GitHub\SuperSecret\ExPlay\Spaceship\Spaceship\obj\x86\Debug\Spaceship.csprojResolveAssemblyReference.cache
+C:\Users\Si\Documents\GitHub\SuperSecret\ExPlay\Spaceship\Spaceship\obj\x86\Debug\Microsoft.Xna.Framework.RuntimeProfile.txt
+C:\Users\Si\Documents\GitHub\SuperSecret\ExPlay\Spaceship\Spaceship\bin\x86\Debug\Spaceship.exe
+C:\Users\Si\Documents\GitHub\SuperSecret\ExPlay\Spaceship\Spaceship\bin\x86\Debug\Spaceship.pdb
+C:\Users\Si\Documents\GitHub\SuperSecret\ExPlay\Spaceship\Spaceship\bin\x86\Debug\ExLib.dll
+C:\Users\Si\Documents\GitHub\SuperSecret\ExPlay\Spaceship\Spaceship\bin\x86\Debug\ExLib.pdb
+C:\Users\Si\Documents\GitHub\SuperSecret\ExPlay\Spaceship\Spaceship\obj\x86\Debug\Spaceship.exe
+C:\Users\Si\Documents\GitHub\SuperSecret\ExPlay\Spaceship\Spaceship\obj\x86\Debug\Spaceship.pdb

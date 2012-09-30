@@ -10,6 +10,7 @@ using Microsoft.Xna.Framework.Input;
 using Microsoft.Xna.Framework.Media;
 using ExLib.Managers;
 using ExLib.Interfaces;
+using ExLib.Objects;
 
 namespace ExLib
 {
@@ -22,9 +23,6 @@ namespace ExLib
 
         public static GameWindow ClientWindow;
 
-        public const int SCREEN_WIDTH = 640;
-        public const int SCREEN_HEIGHT = 480;
-
         public ExGame()
         {
             GameRef = this;
@@ -33,8 +31,8 @@ namespace ExLib
             
             GraphicsManager.GraphicsDeviceManager = new GraphicsDeviceManager(this);
 
-            GraphicsManager.GraphicsDeviceManager.PreferredBackBufferWidth = SCREEN_WIDTH;
-            GraphicsManager.GraphicsDeviceManager.PreferredBackBufferHeight = SCREEN_HEIGHT;
+            GraphicsManager.GraphicsDeviceManager.PreferredBackBufferWidth = GraphicsManager.RESOLUTION_X;
+            GraphicsManager.GraphicsDeviceManager.PreferredBackBufferHeight = GraphicsManager.RESOLUTION_Y;
             
             ClientWindow.AllowUserResizing = true;
 
@@ -51,7 +49,7 @@ namespace ExLib
         {
             GraphicsManager.SpriteBatch = new SpriteBatch(GraphicsDevice);
 
-            GraphicsManager.Initialise(TextureList);
+            GraphicsManager.Initialise(TextureList, () => AnimationList);
             ElementManager.Initialise();
             ActorManager.Initialise();
             InputManager.Initialise();
@@ -59,10 +57,9 @@ namespace ExLib
             base.Initialize();
         }
 
-
-        //protected abstract List<string> TextureList { get; }
         public abstract List<string> TextureList { get; }
 
+        public abstract List<Animation> AnimationList { get; } 
 
         /// <summary>
         /// LoadContent will be called once per game and is the place to load
@@ -102,7 +99,8 @@ namespace ExLib
         {
             GraphicsManager.BeginDraw(gameTime);
 
-            //ElementManager.Draw(gameTime);
+            // Draw decorative items
+            ElementManager.Draw(gameTime);
 
             PerformDraw(gameTime);
 

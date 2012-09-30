@@ -98,8 +98,10 @@
     <Compile Include="Interfaces\IInitialisable.cs" />
     <Compile Include="Interfaces\IMovementBehaviour.cs" />
     <Compile Include="Interfaces\IUpdatable.cs" />
+    <Compile Include="Objects\Animation.cs" />
     <Compile Include="Objects\Actor.cs" />
     <Compile Include="Managers\ActorManager.cs" />
+    <Compile Include="Objects\AnimationFrame.cs" />
     <Compile Include="Objects\Element.cs" />
     <Compile Include="Managers\ElementManager.cs" />
     <Compile Include="Managers\GraphicsManager.cs" />
@@ -110,6 +112,7 @@
     <Compile Include="MovementBehaviour\Keyboard\KeyboardMovementBehaviour.cs" />
     <Compile Include="MovementBehaviour\Movements.cs" />
     <Compile Include="MovementBehaviour\MovementState.cs" />
+    <Compile Include="Objects\GameTexture.cs" />
     <Compile Include="Other\Viewport.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ExGame.cs" />

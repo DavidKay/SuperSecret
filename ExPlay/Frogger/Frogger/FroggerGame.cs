@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using ExLib;
 using Frogger.Managers;
+using ExLib.Objects;
 
 namespace Frogger
 {
@@ -12,6 +13,8 @@ namespace Frogger
         public enum Textures
         {
             GreenFrog,
+            GreenFrogJump,
+            GreenFrogJump2,
             GrassTile,
             RoadTile,
             WaterTile,
@@ -25,6 +28,25 @@ namespace Frogger
                 List<string> toReturn = new List<string>();
                 Enum.GetValues(typeof(Textures)).Cast<Textures>().ToList().ForEach(c => toReturn.Add(c.ToString()));
                 return toReturn;
+            }
+        }
+
+        public override List<Animation> AnimationList
+        {
+            get 
+            {
+                List<Animation> animations = new List<Animation>();
+
+                List<AnimationFrame> jumpingFrogFrames = new List<AnimationFrame>();
+
+                jumpingFrogFrames.Add(new AnimationFrame(50, Textures.GreenFrogJump));
+                jumpingFrogFrames.Add(new AnimationFrame(50, Textures.GreenFrogJump2));
+
+                Animation JumpingFrog = new Animation("JumpingFrog", jumpingFrogFrames);
+
+                animations.Add(JumpingFrog);
+
+                return animations;
             }
         }
 
