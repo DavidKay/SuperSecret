@@ -3,41 +3,58 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using ExLib.Interfaces;
-using Frogger.GameWindows;
 using Microsoft.Xna.Framework;
 using ExLib.Objects;
-using Frogger.Level;
 using ExLib.Managers;
 using Frogger.Actors;
 using ExLib.MovementBehaviour.Keyboard;
 using ExLib;
 using ExLib.Other;
+using ExLib.Bases;
+using Frogger.GameScreens;
 
 namespace Frogger.Managers
 {
     public static class GameManager
     {
-        public static IGameWindow GameWindow;
+        private static GameScreen _loadingScreen;
+        private static GameScreen _inGameScreen;
 
-        public static Viewport GameViewport;
+        private static CurrentGameState _currentGameState;
 
-        public static void Initialize()
+        public static GameScreen CurrentGameScreen
         {
-            GameWindow = new MainScreen();
+            get
+            {
+                if (_currentGameState == CurrentGameState.Loading)
+                    return _loadingScreen;
+                else
+                    return _inGameScreen;
+            }
+        }
 
-            GameViewport = new Viewport(0, 0,(int) (GraphicsManager.RESOLUTION_X * 0.5), (int) (GraphicsManager.RESOLUTION_Y * 0.5), GraphicsManager.RESOLUTION_X, GraphicsManager.RESOLUTION_Y);
+        public enum CurrentGameState
+        {
+            Loading,
+            Ingame
+        }
 
-            GameWindow.Initialise(Program.FroggerGame.Content);
+        public static void Initialize(GameScreen initialGameScreen)
+        {
+            _currentGameState = CurrentGameState.Loading;
+
+            _loadingScreen = new SplashScreen();
+            _loadingScreen.Initialise();
         }
 
         internal static void Update(GameTime gameTime)
         {
-            GameWindow.Update(gameTime);
+            CurrentGameScreen.Update(gameTime);   
         }
 
         public static void Draw(GameTime gameTime)
         {
-            GameViewport.Draw(gameTime);
+            CurrentGameScreen.Draw(gameTime);
         }
 
         private const int TILE_WIDTH = 32;
@@ -45,17 +62,20 @@ namespace Frogger.Managers
 
         public static List<Actor> Players = new List<Actor>();
 
+
         public static void StartNewGame()
         {
-            LevelManager.Initialise();
+            _inGameScreen = new IngameScreen();
 
-            ElementManager.Empty();
+            _inGameScreen.Initialise();
+
+            LevelManager.Initialise();
 
             LevelManager.SetLevel(4);
 
             var allElements = LevelManager.CurrentLevel.GetAllElements();
 
-            allElements.ForEach(c => ElementManager.GameElements.Add(c));
+            allElements.ForEach(c => _inGameScreen.Elements.Add(c));
 
             // Add player frogs
             Actor player = new Frog()
@@ -67,7 +87,6 @@ namespace Frogger.Managers
             };
 
             Players.Add(player);
-            ActorManager.AddActor(player);
 
             Actor car = new Car()
             {
@@ -76,13 +95,13 @@ namespace Frogger.Managers
                 Y = 230
             };
 
-            ActorManager.AddActor(car);
-
-            //GameViewport.TrackTarget = player;
-            
+            _inGameScreen.Elements.Add(player); 
+            _inGameScreen.Elements.Add(car);
 
             car.Initialize();
             player.Initialize();
+
+            _currentGameState = CurrentGameState.Ingame;
         }
     }
 }

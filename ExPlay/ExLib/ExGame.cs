@@ -11,6 +11,7 @@ using Microsoft.Xna.Framework.Media;
 using ExLib.Managers;
 using ExLib.Interfaces;
 using ExLib.Objects;
+using ExLib.Bases;
 
 namespace ExLib
 {
@@ -19,7 +20,7 @@ namespace ExLib
     /// </summary>
     public abstract class ExGame : Microsoft.Xna.Framework.Game
     {
-        public static Game GameRef { get; private set; }
+        public static ExGame GameRef { get; private set; }
 
         public static GameWindow ClientWindow;
 
@@ -49,13 +50,14 @@ namespace ExLib
         {
             GraphicsManager.SpriteBatch = new SpriteBatch(GraphicsDevice);
 
-            GraphicsManager.Initialise(TextureList, () => AnimationList);
+            GraphicsManager.Initialise(TextureList, GameFonts, () => AnimationList);
             ElementManager.Initialise();
-            ActorManager.Initialise();
             InputManager.Initialise();
 
             base.Initialize();
         }
+
+        public abstract List<GameFont> GameFonts { get; }
 
         public abstract List<string> TextureList { get; }
 
@@ -86,7 +88,6 @@ namespace ExLib
         protected override void Update(GameTime gameTime)
         {
             InputManager.Update();
-            ActorManager.Update(gameTime);
             ElementManager.Update(gameTime);
             base.Update(gameTime);
         }
@@ -111,6 +112,6 @@ namespace ExLib
 
         protected abstract void PerformDraw(GameTime gameTime);
 
-
+        public abstract GameScreen GameScreen { get; }
     }
 }

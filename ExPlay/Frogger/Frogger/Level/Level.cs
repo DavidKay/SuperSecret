@@ -5,8 +5,9 @@ using System.Text;
 using Frogger.Elements;
 using ExLib.Managers;
 using ExLib.Objects;
+using Frogger.Managers;
 
-namespace Frogger.Level
+namespace Frogger
 {
     public class Level
     {

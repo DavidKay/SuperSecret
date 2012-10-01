@@ -4,43 +4,61 @@ using System.Linq;
 using System.Text;
 using Microsoft.Xna.Framework;
 using ExLib.Objects;
+using ExLib.Interfaces;
+using ExLib.Bases;
 
 namespace ExLib.Managers
 {
     public static class ElementManager
     {
-        private static List<Element> _gameElements;
-        public static List<Element> GameElements {
-            get { return _gameElements; }
-            set { _gameElements = value; }
-        }
-
         internal static void Initialise()
         {
-            GameElements = new List<Element>();
+            
         }
 
-        // only draw decorative items
+        
         public static void Draw(GameTime gameTime)
         {
-            GameElements.Where(c => c.IsBackgroundElement).ToList().ForEach(c => c.Draw(gameTime));
+            // May need to re-add this or write something similar
+            // in order to display background non-interactive elements eg. starfield
+
+            //GameElements.Where(c => c.IsBackgroundElement).ToList().ForEach(c => c.Draw(gameTime));
         }
 
         internal static void Update(GameTime gameTime)
         {
-            GameElements.ForEach(c => c.Update(gameTime));
+            GetScreenElements().Where(c => c is IUpdatable).ToList().ForEach(c => ((IUpdatable)c).Update(gameTime));
         }
 
-        public static void Empty()
+        private static List<Element> GetScreenElements()
         {
-            GameElements = new List<Element>();
+            // Recursively get all elements from nested game screens
+
+            List<Element> CombinedElements = new List<Element>();
+
+            RecurseChildren(ExGame.GameRef.GameScreen, ref CombinedElements);
+
+            return CombinedElements;
+        }
+
+        private static void RecurseChildren(GameScreen gameScreen, ref List<Element> combinedElements)
+        {
+            foreach (Element element in gameScreen.Elements)
+            {
+                combinedElements.Add(element);
+            }
+
+            foreach (GameScreen childScreen in gameScreen.Children)
+            {
+                RecurseChildren(childScreen, ref combinedElements);
+            }
         }
 
         public static List<Element> GetIntersections(Rectangle rect)
         {
             List<Element> IntersectionList = new List<Element>();
 
-            foreach (Element e in GameElements)
+            foreach (Element e in GetScreenElements())
             {
                 if (CheckIntersect(e, rect))
                     IntersectionList.Add(e);
@@ -53,7 +71,7 @@ namespace ExLib.Managers
         {
             List<Element> IntersectionList = new List<Element>();
 
-            foreach (Element e in GameElements.Where(c => !c.Equals(a)))
+            foreach (Element e in GetScreenElements().Where(c => !c.Equals(a)))
             {
                 if (CheckIntersect(a, e))
                     IntersectionList.Add(e);
@@ -79,7 +97,7 @@ namespace ExLib.Managers
         {
             List<Element> IntersectionList = new List<Element>();
 
-            foreach (Element e in GameElements.Where(c => types.Contains(c.GetType())))
+            foreach (Element e in GetScreenElements().Where(c => types.Contains(c.GetType())))
             {
                 if (CheckIntersect(a, e))
                     IntersectionList.Add(e);

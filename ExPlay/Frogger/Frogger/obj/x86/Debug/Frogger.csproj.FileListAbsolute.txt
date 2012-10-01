@@ -14,3 +14,4 @@ C:\Users\Si\Documents\GitHub\SuperSecret\ExPlay\Frogger\Frogger\obj\x86\Debug\Fr
 C:\Users\Si\Documents\GitHub\SuperSecret\ExPlay\Frogger\Frogger\obj\x86\Debug\Microsoft.Xna.Framework.RuntimeProfile.txt
 C:\Users\Si\Documents\GitHub\SuperSecret\ExPlay\Frogger\Frogger\obj\x86\Debug\Frogger.exe
 C:\Users\Si\Documents\GitHub\SuperSecret\ExPlay\Frogger\Frogger\obj\x86\Debug\Frogger.pdb
+C:\Users\Si\Documents\GitHub\SuperSecret\ExPlay\Frogger\Frogger\bin\x86\Debug\Content\LoadingFont.xnb

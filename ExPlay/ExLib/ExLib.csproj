@@ -92,19 +92,17 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Bases\GameWindowBase.cs" />
+    <Compile Include="Bases\GameScreen.cs" />
     <Compile Include="Interfaces\IDrawable.cs" />
-    <Compile Include="Interfaces\IGameWindow.cs" />
-    <Compile Include="Interfaces\IInitialisable.cs" />
     <Compile Include="Interfaces\IMovementBehaviour.cs" />
     <Compile Include="Interfaces\IUpdatable.cs" />
     <Compile Include="Objects\Animation.cs" />
     <Compile Include="Objects\Actor.cs" />
-    <Compile Include="Managers\ActorManager.cs" />
     <Compile Include="Objects\AnimationFrame.cs" />
     <Compile Include="Objects\Element.cs" />
     <Compile Include="Managers\ElementManager.cs" />
     <Compile Include="Managers\GraphicsManager.cs" />
+    <Compile Include="Objects\GameFont.cs" />
     <Compile Include="Objects\Sprite.cs" />
     <Compile Include="Managers\InputManager.cs" />
     <Compile Include="MovementBehaviour\DirectionState.cs" />

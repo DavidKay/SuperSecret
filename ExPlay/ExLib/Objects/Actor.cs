@@ -8,7 +8,7 @@ using Microsoft.Xna.Framework;
 
 namespace ExLib.Objects
 {
-    public abstract class Actor : Element
+    public abstract class Actor : Element, IUpdatable
     {
         public IMovementBehaviour MovementBehaviour;
 

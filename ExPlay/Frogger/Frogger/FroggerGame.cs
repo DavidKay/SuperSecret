@@ -5,6 +5,8 @@ using System.Text;
 using ExLib;
 using Frogger.Managers;
 using ExLib.Objects;
+using Frogger.GameScreens;
+using Microsoft.Xna.Framework.Graphics;
 
 namespace Frogger
 {
@@ -31,6 +33,18 @@ namespace Frogger
             }
         }
 
+        public override List<GameFont> GameFonts
+        {
+            get
+            {
+                List<GameFont> gameFonts = new List<GameFont>();
+
+                gameFonts.Add(new GameFont(Content.Load<SpriteFont>("LoadingFont"), "LoadingFont"));
+
+                return gameFonts;
+            }
+        }
+
         public override List<Animation> AnimationList
         {
             get 
@@ -54,7 +68,7 @@ namespace Frogger
         {
             base.Initialize();
 
-            GameManager.Initialize();
+            GameManager.Initialize(new SplashScreen());
         }
 
         protected override void Update(Microsoft.Xna.Framework.GameTime gameTime)
@@ -67,6 +81,11 @@ namespace Frogger
         protected override void PerformDraw(Microsoft.Xna.Framework.GameTime gameTime)
         {
             GameManager.Draw(gameTime);
+        }
+
+        public override ExLib.Bases.GameScreen GameScreen
+        {
+            get { return GameManager.CurrentGameScreen; }
         }
     }
 }

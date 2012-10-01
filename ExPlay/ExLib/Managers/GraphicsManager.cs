@@ -24,6 +24,8 @@ namespace ExLib.Managers
 
         private static List<string> _textureNames;
 
+        private static List<GameFont> _gameFonts;
+
         private static List<Animation> _animationList;
 
         public const int RESOLUTION_X = 640;
@@ -45,7 +47,7 @@ namespace ExLib.Managers
             }
         }
 
-        internal static void Initialise(List<string> textureNames, Func<List<Animation>> animations)
+        internal static void Initialise(List<string> textureNames, List<GameFont> gameFonts, Func<List<Animation>> animations)
         {
             RenderTarget = new RenderTarget2D(
                 GraphicsDeviceManager.GraphicsDevice,
@@ -60,6 +62,8 @@ namespace ExLib.Managers
 
             GraphicsFolder = directory + @"\Graphics";
 
+            _gameFonts = gameFonts;
+
             _textureNames = textureNames;
 
             LoadTextures();
@@ -71,15 +75,15 @@ namespace ExLib.Managers
         {
             Textures = new List<Objects.GameTexture>();
 
-            _textureNames.ForEach(c =>
+            _textureNames.ForEach(textureName =>
                 {
-                    string filePath = GraphicsManager.GraphicsFolder + @"\" + c + ".png";
+                    string filePath = GraphicsManager.GraphicsFolder + @"\" + textureName + ".png";
 
                     using (FileStream fileStream = new FileStream(filePath, FileMode.Open))
                     {
                         var texture = Texture2D.FromStream(GraphicsManager.GraphicsDeviceManager.GraphicsDevice, fileStream);
 
-                        GameTexture gameTexture = new GameTexture(texture, c);
+                        GameTexture gameTexture = new GameTexture(texture, textureName);
 
                         Textures.Add(gameTexture);
                     }
@@ -92,6 +96,21 @@ namespace ExLib.Managers
                 sprite.Texture.Texture2D,
                 new Vector2(location.X, location.Y),
                 Color.White);
+        }
+
+        public static SpriteFont GetFont(string fontName)
+        {
+            return _gameFonts.Single(c => c.Name == fontName).SpriteFont;
+        }
+
+        public static void DrawText(string fontName, string text, int x, int y)
+        {
+            DrawText(_gameFonts.Single(c => c.Name == fontName).SpriteFont, text, x, y);
+        }
+
+        public static void DrawText(SpriteFont spriteFont, string text, int x, int y)
+        {
+            SpriteBatch.DrawString(spriteFont, text, new Vector2(x, y), Color.White);
         }
 
         public static GameTexture GetTexture(string name)
