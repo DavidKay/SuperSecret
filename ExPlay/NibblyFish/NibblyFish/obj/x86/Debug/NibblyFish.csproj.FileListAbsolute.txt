@@ -1,0 +1,9 @@
+C:\Users\Si\Documents\GitHub\SuperSecret\ExPlay\NibblyFish\NibblyFish\obj\x86\Debug\Microsoft.Xna.Framework.RuntimeProfile.txt
+C:\Users\Si\Documents\GitHub\SuperSecret\ExPlay\NibblyFish\NibblyFish\bin\x86\Debug\NibblyFish.exe
+C:\Users\Si\Documents\GitHub\SuperSecret\ExPlay\NibblyFish\NibblyFish\bin\x86\Debug\NibblyFish.pdb
+C:\Users\Si\Documents\GitHub\SuperSecret\ExPlay\NibblyFish\NibblyFish\bin\x86\Debug\ExLib.dll
+C:\Users\Si\Documents\GitHub\SuperSecret\ExPlay\NibblyFish\NibblyFish\bin\x86\Debug\ExLib.pdb
+C:\Users\Si\Documents\GitHub\SuperSecret\ExPlay\NibblyFish\NibblyFish\obj\x86\Debug\NibblyFish.exe
+C:\Users\Si\Documents\GitHub\SuperSecret\ExPlay\NibblyFish\NibblyFish\obj\x86\Debug\NibblyFish.pdb
+C:\Users\Si\Documents\GitHub\SuperSecret\ExPlay\NibblyFish\NibblyFish\bin\x86\Debug\Content\LoadingFont.xnb
+C:\Users\Si\Documents\GitHub\SuperSecret\ExPlay\NibblyFish\NibblyFish\obj\x86\Debug\NibblyFish.csprojResolveAssemblyReference.cache

@@ -24,14 +24,14 @@ namespace ExLib.Objects
             GraphicsManager.DrawSprite(Sprite, new Point(X, Y));
         }
 
-        public Element(Sprite sprite, int x, int y)
+        public Element(Sprite sprite, int x, int y) : base()
         {
             this.Sprite = sprite;
             this.X = x;
             this.Y = y;
         }
 
-        public Element()
+        public Element() : base()
         {
 
         }

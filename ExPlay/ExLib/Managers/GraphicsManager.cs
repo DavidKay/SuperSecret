@@ -90,12 +90,17 @@ namespace ExLib.Managers
                 });
         }
 
-        public static void DrawSprite(Sprite sprite, Point location)
+        public static void DrawSprite(Sprite sprite, Point location, Color color)
         {
             SpriteBatch.Draw(
                 sprite.Texture.Texture2D,
-                new Vector2(location.X, location.Y),
-                Color.White);
+                new Rectangle(location.X, location.Y, sprite.Width, sprite.Height),
+                color);
+        }
+
+        public static void DrawSprite(Sprite sprite, Point location)
+        {
+            DrawSprite(sprite, location, Color.White);
         }
 
         public static SpriteFont GetFont(string fontName)
@@ -155,9 +160,19 @@ namespace ExLib.Managers
             return new Sprite(GetTexture(textureName));
         }
 
+        public static Sprite GetSprite(string textureName, int width, int height)
+        {
+            return new Sprite(GetTexture(textureName), width, height);
+        }
+
         public static Sprite GetSprite(Enum textureName)
         {
             return GetSprite(textureName.ToString());
+        }
+
+        public static Sprite GetSprite(Enum textureName, int width, int height)
+        {
+            return GetSprite(textureName.ToString(), width, height);
         }
     }
 }

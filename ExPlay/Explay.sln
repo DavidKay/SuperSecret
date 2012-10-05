@@ -7,6 +7,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FroggerContent", "Frogger\F
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExLib", "ExLib\ExLib.csproj", "{80C7DD30-BD56-4A58-A4F9-4A1F3B821BD2}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NibblyFish", "NibblyFish\NibblyFish\NibblyFish.csproj", "{03F57070-7282-4EEF-A732-C37208910950}"
+EndProject
+Project("{96E2B04D-8817-42C6-938A-82C39BA4D311}") = "NibblyFishContent", "NibblyFish\NibblyFishContent\NibblyFishContent.contentproj", "{681C763F-B59E-4358-8C40-2ED7E65BE32E}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x86 = Debug|x86
@@ -23,6 +27,12 @@ Global
 		{80C7DD30-BD56-4A58-A4F9-4A1F3B821BD2}.Debug|x86.Build.0 = Debug|x86
 		{80C7DD30-BD56-4A58-A4F9-4A1F3B821BD2}.Release|x86.ActiveCfg = Release|x86
 		{80C7DD30-BD56-4A58-A4F9-4A1F3B821BD2}.Release|x86.Build.0 = Release|x86
+		{03F57070-7282-4EEF-A732-C37208910950}.Debug|x86.ActiveCfg = Debug|x86
+		{03F57070-7282-4EEF-A732-C37208910950}.Debug|x86.Build.0 = Debug|x86
+		{03F57070-7282-4EEF-A732-C37208910950}.Release|x86.ActiveCfg = Release|x86
+		{03F57070-7282-4EEF-A732-C37208910950}.Release|x86.Build.0 = Release|x86
+		{681C763F-B59E-4358-8C40-2ED7E65BE32E}.Debug|x86.ActiveCfg = Debug|x86
+		{681C763F-B59E-4358-8C40-2ED7E65BE32E}.Release|x86.ActiveCfg = Release|x86
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

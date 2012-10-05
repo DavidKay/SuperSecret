@@ -37,18 +37,27 @@ namespace ExLib.Objects
 
         private Animation _animation;
 
-        //public string Name
-        //{
-        //    get;
-        //    set;
-        //}
+        private int _width;
+        private int _height;
 
-        public int Width { get { return Texture.Texture2D.Width; } }
-        public int Height { get { return Texture.Texture2D.Height; } }
+
+        public int Width { get { return _width; } }
+        public int Height { get { return _height;  } }
 
         public Sprite(GameTexture defaultTexture)
         {
             this._defaultTexture = defaultTexture;
+
+            this._width = defaultTexture.Texture2D.Width;
+            this._height = defaultTexture.Texture2D.Height;
+        }
+
+        public Sprite(GameTexture defaultTexture, int width, int height)
+        {
+            this._defaultTexture = defaultTexture;
+
+            this._width = width;
+            this._height = height;
         }
 
         public void Animate(string AnimationName)

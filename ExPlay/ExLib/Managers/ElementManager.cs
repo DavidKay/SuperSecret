@@ -23,6 +23,8 @@ namespace ExLib.Managers
             // in order to display background non-interactive elements eg. starfield
 
             //GameElements.Where(c => c.IsBackgroundElement).ToList().ForEach(c => c.Draw(gameTime));
+
+            //GetScreenElements().ForEach(c => c.Draw(gameTime));
         }
 
         internal static void Update(GameTime gameTime)
