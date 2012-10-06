@@ -43,8 +43,8 @@ namespace ExLib.Objects
         private int _height;
 
 
-        public int Width { get { return _width; } }
-        public int Height { get { return _height;  } }
+        public int Width { get { return _width; } set { _width = value; } }
+        public int Height { get { return _height; } set { _height = value; } }
 
         public Sprite(GameTexture defaultTexture)
         {

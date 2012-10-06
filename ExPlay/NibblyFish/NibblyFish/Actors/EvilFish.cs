@@ -15,7 +15,7 @@ namespace NibblyFish.Actors
 
         public EvilFish()
         {
-            this.Sprite = GraphicsManager.GetSprite(NibblyFishGame.Textures.GreenFrog);
+            this.Sprite = GraphicsManager.GetSprite(NibblyFishGame.Textures.EvilFish);
 
             this.Sprite.Color = _colors[GameManager.Rnd.Next(0, _colors.Count)];
         }

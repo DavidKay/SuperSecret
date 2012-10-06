@@ -15,6 +15,10 @@ namespace NibblyFish.Actors
 
         private const int COLOR_COOLDOWN_DURATION = 5000;
 
+        private int _size = 0;
+
+        private bool _evilTransformation = false;
+
         public PlayerFish()
         {
             this.Sprite = GraphicsManager.GetSprite(NibblyFishGame.Textures.DiddyFish);
@@ -112,13 +116,19 @@ namespace NibblyFish.Actors
 
             if (intersections.Any())
             {
-                foreach (EvilFish intersection in intersections.Where(c => c is EvilFish))
                 {
-                    if (intersection.Sprite.Color != this.Sprite.Color)
+                    foreach (EvilFish intersection in intersections.Where(c => c is EvilFish))
                     {
-                        // death routine
-                        this.X = 0;
-                        this.Y = 300;
+                        if (_evilTransformation)
+                        {
+                            intersection.Kill();
+                        }
+                        else if (intersection.Sprite.Color != this.Sprite.Color)
+                        {
+                            // death routine
+                            this.X = 0;
+                            this.Y = 300;
+                        }
                     }
                 }
 
@@ -126,6 +136,22 @@ namespace NibblyFish.Actors
                 {
                     // remove the food!
                     intersection.Kill();
+                    _size++;
+
+                    if (_size < 5)
+                    {
+                        this.Sprite.Width++;
+                        this.Sprite.Height++;
+                    }
+                    else if (!_evilTransformation)
+                    {
+                        this.Sprite.Texture = GraphicsManager.GetTexture(NibblyFishGame.Textures.EvilFish.ToString());
+                        _evilTransformation = true;
+                        this.Sprite.Height += 10;
+                        this.Sprite.Width += 10 ;
+                        MovementSpeed = 100;
+                    }
+
                     
                 }
             }

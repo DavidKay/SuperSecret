@@ -16,7 +16,7 @@ namespace NibblyFish
     {
         public enum Textures
         {
-            GreenFrog,
+            EvilFish,
             background1,
             DiddyFish,
             Food
