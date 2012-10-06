@@ -13,12 +13,15 @@ namespace NibblyFish.Actors
   {
     private enum EvilFishBehaviour
     {
+      Swimming,
       Chase,
       Idle
     }
 
-    private Vector2 destination;
+    private Vector2 destination = Vector2.Zero;
     private EvilFishBehaviour behaviour;
+    private Vector2 velocity = Vector2.Zero;
+    private double maxSpeed = 1;
 
     private List<Color> _colors = new List<Color>() { Color.Red, Color.Green, Color.Orange };
 
@@ -28,6 +31,7 @@ namespace NibblyFish.Actors
 
       this.Sprite.Color = _colors[GameManager.Random.Next(0, _colors.Count)];
 
+      this.destination = this.GetNewDestination();
       this.behaviour = EvilFishBehaviour.Idle;
     }
 
@@ -39,22 +43,32 @@ namespace NibblyFish.Actors
           break;
         case EvilFishBehaviour.Idle:
 
-          this.GetNewDestination();
-          // random direction
-          int moveX = GameManager.Random.Next(-1, 2);
-          int moveY = GameManager.Random.Next(-1, 2);
+          this.destination = this.GetNewDestination();
+          this.velocity = this.destination - this.Position;
 
-          this.X += moveX;
-          this.Y += moveY;
+          this.velocity = this.velocity * 0.05f;
+          this.behaviour = EvilFishBehaviour.Swimming;
+          break;
+        case EvilFishBehaviour.Swimming:
+          if((this.destination - this.Position).Length() <= 20)
+          {
+            this.behaviour = EvilFishBehaviour.Idle;
+          }
           break;
         default:
           break;
       }
+
+      this.Position = this.Position + this.velocity;
     }
 
-    private void GetNewDestination()
+    private Vector2 GetNewDestination()
     {
+      Vector2 destination = new Vector2(
+                            GameManager.Random.Next(NibblyFishGame.DANGERFIELD.Left, NibblyFishGame.DANGERFIELD.Left+ NibblyFishGame.DANGERFIELD.Width),
+                            GameManager.Random.Next(NibblyFishGame.DANGERFIELD.Top, NibblyFishGame.DANGERFIELD.Height));
 
+      return destination;
     }
   }
 }

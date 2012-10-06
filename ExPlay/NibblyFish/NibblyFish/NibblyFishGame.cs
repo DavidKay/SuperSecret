@@ -14,9 +14,18 @@ namespace NibblyFish
 {
   public class NibblyFishGame : ExGame
   {
-    public static Rectangle PLAYFIELD = new Rectangle(0,0,1024,768);
+    public static Rectangle PLAYFIELD = new Rectangle(0, 0, 1024, 768);
 
     public static int PLAYFIELDSIDESAFEZONEWIDTH = 128;
+
+    /// <summary>
+    /// Represents the area in which the killer piranas' roam.
+    /// </summary>
+    public static Rectangle DANGERFIELD = new Rectangle(
+      PLAYFIELDSIDESAFEZONEWIDTH,
+      0,
+      PLAYFIELD.Width - PLAYFIELDSIDESAFEZONEWIDTH,
+      PLAYFIELD.Height);
 
     public enum Textures
     {

@@ -85,8 +85,8 @@ namespace NibblyFish.Managers
         EvilFish evilFish = new EvilFish();
 
         // randomise its location
-        evilFish.X = Random.Next(_aquariumBounds.Left, _aquariumBounds.Right);
-        evilFish.Y = Random.Next(_aquariumBounds.Top, _aquariumBounds.Bottom);
+        evilFish.Position = new Vector2(Random.Next(_aquariumBounds.Left, _aquariumBounds.Right),
+                                        Random.Next(_aquariumBounds.Top, _aquariumBounds.Bottom));
 
         aquariumScreen.Elements.Add(evilFish);
       }
@@ -97,8 +97,8 @@ namespace NibblyFish.Managers
         Food food = new Food();
 
         // randomise its location
-        food.X = Random.Next(_aquariumBounds.Left, _aquariumBounds.Right);
-        food.Y = Random.Next(_aquariumBounds.Top, _aquariumBounds.Bottom);
+        food.Position = new Vector2(Random.Next(_aquariumBounds.Left, _aquariumBounds.Right),
+                                    Random.Next(_aquariumBounds.Top, _aquariumBounds.Bottom));
 
         aquariumScreen.Elements.Add(food);
       }
@@ -117,8 +117,7 @@ namespace NibblyFish.Managers
             MovementBehaviour = new KeyboardMovementBehaviour(0)
           };
 
-      playerFish.X = 30;
-      playerFish.Y = 300;
+      playerFish.Position = new Vector2(30, 300);
 
       _aquariumScreen.Elements.Add(playerFish);
 
@@ -129,8 +128,7 @@ namespace NibblyFish.Managers
         MovementBehaviour = new KeyboardMovementBehaviour(1)
       };
 
-      playerFish2.X = 30;
-      playerFish2.Y = 300;
+      playerFish2.Position = new Vector2(30, 300);
 
       _aquariumScreen.Elements.Add(playerFish2);
 

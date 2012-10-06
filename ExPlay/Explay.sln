@@ -1,15 +1,13 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 11.00
 # Visual Studio 2010
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Frogger", "Frogger\Frogger\Frogger.csproj", "{B7427C88-4A92-4F24-94E7-2BDB1159F946}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FroggerContent", "Frogger\FroggerContent\FroggerContent.contentproj", "{5C5C04F1-D8C6-416C-80E5-15A75398BC1B}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExLib", "ExLib\ExLib.csproj", "{80C7DD30-BD56-4A58-A4F9-4A1F3B821BD2}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NibblyFish", "NibblyFish\NibblyFish\NibblyFish.csproj", "{03F57070-7282-4EEF-A732-C37208910950}"
 EndProject
-Project("{96E2B04D-8817-42C6-938A-82C39BA4D311}") = "NibblyFishContent", "NibblyFish\NibblyFishContent\NibblyFishContent.contentproj", "{681C763F-B59E-4358-8C40-2ED7E65BE32E}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NibblyFishContent", "NibblyFish\NibblyFishContent\NibblyFishContent.contentproj", "{681C763F-B59E-4358-8C40-2ED7E65BE32E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -17,10 +15,6 @@ Global
 		Release|x86 = Release|x86
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{B7427C88-4A92-4F24-94E7-2BDB1159F946}.Debug|x86.ActiveCfg = Debug|x86
-		{B7427C88-4A92-4F24-94E7-2BDB1159F946}.Debug|x86.Build.0 = Debug|x86
-		{B7427C88-4A92-4F24-94E7-2BDB1159F946}.Release|x86.ActiveCfg = Release|x86
-		{B7427C88-4A92-4F24-94E7-2BDB1159F946}.Release|x86.Build.0 = Release|x86
 		{5C5C04F1-D8C6-416C-80E5-15A75398BC1B}.Debug|x86.ActiveCfg = Debug|x86
 		{5C5C04F1-D8C6-416C-80E5-15A75398BC1B}.Release|x86.ActiveCfg = Release|x86
 		{80C7DD30-BD56-4A58-A4F9-4A1F3B821BD2}.Debug|x86.ActiveCfg = Debug|x86
