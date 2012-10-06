@@ -20,6 +20,7 @@ namespace ExLib.Managers
             
             currentGamePadStates.Clear();
 
+
             if (GamePad.GetState(PlayerIndex.One).IsConnected)
             {
                 currentGamePadStates.Add(GamePad.GetState(PlayerIndex.One));

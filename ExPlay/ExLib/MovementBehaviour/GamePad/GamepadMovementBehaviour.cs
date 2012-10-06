@@ -8,7 +8,7 @@ using Microsoft.Xna.Framework.Input;
 
 namespace ExLib.MovementBehaviour.GamePad
 {
-    class GamepadMovementBehaviour : IMovementBehaviour
+    public class GamepadMovementBehaviour : IMovementBehaviour
     {
         private List<Movements.MovementsEnum> movementList = new List<Movements.MovementsEnum>();
 

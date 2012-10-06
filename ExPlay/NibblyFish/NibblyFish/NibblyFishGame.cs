@@ -14,8 +14,7 @@ namespace NibblyFish
 {
   public class NibblyFishGame : ExGame
   {
-    public static int PLAYFIELDWIDTH = 1024;
-    public static int PLAYFIELDHIEGHT = 768;
+    public static Rectangle PLAYFIELD = new Rectangle(0,0,1024,768);
 
     public static int PLAYFIELDSIDESAFEZONEWIDTH = 128;
 
