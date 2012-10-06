@@ -20,7 +20,7 @@ namespace NibblyFish.GameScreens
 
             if (elapsedMilliseconds > 500)
             {
-                GameManager.StartNewGame();
+                GameManager.ShowTitleScreen();
             }
         }
 

@@ -8,6 +8,7 @@ using NibblyFish.GameScreens;
 using NibblyFish.Actors;
 using ExLib.Managers;
 using ExLib.MovementBehaviour.Keyboard;
+using NibblyFish.PlayerData;
 
 namespace NibblyFish.Managers
 {
@@ -32,10 +33,12 @@ namespace NibblyFish.Managers
     {
       get
       {
-        if(_currentGameState == CurrentGameState.Loading)
-          return _loadingScreen;
-        else
-          return _titleScreen;
+          if (_currentGameState == CurrentGameState.Loading)
+              return _loadingScreen;
+          else if (_currentGameState == CurrentGameState.TitleScreen)
+              return _titleScreen;
+          else
+              return _inGameScreen;
       }
     }
 
@@ -57,7 +60,7 @@ namespace NibblyFish.Managers
       CurrentGameScreen.Draw(gameTime);
     }
 
-    public static void StartNewGame()
+    public static void ShowTitleScreen()
     {
       _titleScreen = new TitleScreen();
       _currentGameState = CurrentGameState.TitleScreen;
@@ -65,10 +68,19 @@ namespace NibblyFish.Managers
       _titleScreen.Initialise();
     }
 
+    public static void StartNewGame()
+    {
+        _inGameScreen = new IngameScreen();
+        _currentGameState = CurrentGameState.Ingame;
+
+        _inGameScreen.Initialise();
+    }
+
     private static List<EvilFish> _evilFish;
 
     private static int _numEvilFish = 10;
     private static int _numFood = 20;
+    private static int _numPlayers = 2;
 
     private static Rectangle _aquariumBounds = new Rectangle(0, 0, GraphicsManager.RESOLUTION_X, GraphicsManager.RESOLUTION_Y);
 
@@ -106,33 +118,49 @@ namespace NibblyFish.Managers
       _aquariumScreen = aquariumScreen;
 
       // Temporary
-      SetupPlayers();
+      //SetupPlayers();
     }
+
+    public static List<Player> gamePlayers = new List<Player>();
 
     internal static void SetupPlayers()
     {
+        if (_numPlayers >= 1)
+        {
+            Player player1 = new Player(0);
+            PlayerFish playerFish = new PlayerFish(player1)
+            {
+                // Keyboard input 1
+                MovementBehaviour = new KeyboardMovementBehaviour(0),
+                RespawnPoint = new Point(30, (int)((GraphicsManager.ScreenHeight * 0.5) - (GraphicsManager.GetSprite(NibblyFishGame.Textures.DiddyFish).Height * 0.5)))
+            };
 
-      PlayerFish playerFish = new PlayerFish()
-          {
-            MovementBehaviour = new KeyboardMovementBehaviour(0)
-          };
+            playerFish.Position.X = playerFish.RespawnPoint.X;
+            playerFish.Position.Y = playerFish.RespawnPoint.Y;
 
-      playerFish.Position = new Vector2(30, 300);
+            _aquariumScreen.Elements.Add(playerFish);
 
-      _aquariumScreen.Elements.Add(playerFish);
+            playerFish.Initialize();
+        }
 
-      playerFish.Initialize();
+        if (_numPlayers >= 2)
+        {
+            Player player2 = new Player(1);
 
-      PlayerFish playerFish2 = new PlayerFish()
-      {
-        MovementBehaviour = new KeyboardMovementBehaviour(1)
-      };
+            PlayerFish playerFish = new PlayerFish(player2)
+            {
+                // Keyboard input 1
+                MovementBehaviour = new KeyboardMovementBehaviour(1),
+                RespawnPoint = new Point(GraphicsManager.ScreenWidth - 30, (int)((GraphicsManager.ScreenHeight * 0.5) - (GraphicsManager.GetSprite(NibblyFishGame.Textures.DiddyFish).Height * 0.5)))
+            };
 
-      playerFish2.Position = new Vector2(30, 300);
+            playerFish.Position.X = playerFish.RespawnPoint.X;
+            playerFish.Position.Y = playerFish.RespawnPoint.Y;
 
-      _aquariumScreen.Elements.Add(playerFish2);
+            _aquariumScreen.Elements.Add(playerFish);
 
-      playerFish2.Initialize();
+            playerFish.Initialize();
+        }
     }
   }
 }

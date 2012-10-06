@@ -6,6 +6,7 @@ using ExLib.Objects;
 using ExLib.Managers;
 using Microsoft.Xna.Framework;
 using NibblyFish.Managers;
+using NibblyFish.PlayerData;
 
 namespace NibblyFish.Actors
 {
@@ -19,8 +20,14 @@ namespace NibblyFish.Actors
 
     private bool _evilTransformation = false;
 
-    public PlayerFish()
+    public Player Player;
+
+    public Point RespawnPoint;
+
+    public PlayerFish(Player player)
     {
+      this.Player = player;
+
       this.Sprite = GraphicsManager.GetSprite(NibblyFishGame.Textures.DiddyFish);
 
       this.Sprite.Color = Color.Orange;
@@ -122,7 +129,8 @@ namespace NibblyFish.Actors
             else if(intersection.Sprite.Color != this.Sprite.Color)
             {
               // death routine
-              this.Position = new Vector2(0, 300);
+              this.Position = new Vector2(this.RespawnPoint.X, this.RespawnPoint.Y);
+              this._size = 0;
             }
           }
         }
