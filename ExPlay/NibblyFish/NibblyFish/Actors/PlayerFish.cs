@@ -11,6 +11,10 @@ namespace NibblyFish.Actors
 {
     public class PlayerFish : Actor
     {
+        private int _changeColorCooldown = 0;
+
+        private const int COLOR_COOLDOWN_DURATION = 5000;
+
         public PlayerFish()
         {
             this.Sprite = GraphicsManager.GetSprite(NibblyFishGame.Textures.DiddyFish);
@@ -60,6 +64,8 @@ namespace NibblyFish.Actors
 
         public override void Update(GameTime gameTime)
         {
+            _changeColorCooldown -= gameTime.ElapsedGameTime.Milliseconds;
+
             if (movementState.Direction.North)
             {
                 Move(MovementState.North, gameTime);
@@ -77,23 +83,27 @@ namespace NibblyFish.Actors
                 Move(MovementState.West, gameTime);
             }
 
-            if (currentMovements != null )
+            if (currentMovements != null && _changeColorCooldown <= 0)
             {
                 if (currentMovements.Contains(ExLib.MovementBehaviour.Movements.MovementsEnum.ChangeColourRed))
                 {
                     this.Sprite.Color = Color.Red;
+                    _changeColorCooldown = COLOR_COOLDOWN_DURATION;
                 }
                 if (currentMovements.Contains(ExLib.MovementBehaviour.Movements.MovementsEnum.ChangeColourOrange))
                 {
                     this.Sprite.Color = Color.Orange;
+                    _changeColorCooldown = COLOR_COOLDOWN_DURATION;
                 }
                 if (currentMovements.Contains(ExLib.MovementBehaviour.Movements.MovementsEnum.ChangeColourGreen))
                 {
                     this.Sprite.Color = Color.Green;
+                    _changeColorCooldown = COLOR_COOLDOWN_DURATION;
                 }
                 if (currentMovements.Contains(ExLib.MovementBehaviour.Movements.MovementsEnum.ChangeColourBlue))
                 {
                     this.Sprite.Color = Color.Blue;
+                    _changeColorCooldown = COLOR_COOLDOWN_DURATION;
                 }
             }
             

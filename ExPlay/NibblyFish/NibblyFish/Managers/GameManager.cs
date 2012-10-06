@@ -111,6 +111,7 @@ namespace NibblyFish.Managers
 
         internal static void SetupPlayers()
         {
+
             PlayerFish playerFish = new PlayerFish()
                 {
                     MovementBehaviour = new KeyboardMovementBehaviour(0)
@@ -122,6 +123,18 @@ namespace NibblyFish.Managers
             _aquariumScreen.Elements.Add(playerFish);
 
             playerFish.Initialize();
+
+            PlayerFish playerFish2 = new PlayerFish()
+            {
+                MovementBehaviour = new KeyboardMovementBehaviour(1)
+            };
+
+            playerFish2.X = 30;
+            playerFish2.Y = 300;
+
+            _aquariumScreen.Elements.Add(playerFish2);
+
+            playerFish2.Initialize();
         }
 
     }
