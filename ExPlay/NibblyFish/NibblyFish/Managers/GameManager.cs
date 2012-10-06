@@ -72,7 +72,7 @@ namespace NibblyFish.Managers
 
         private static Rectangle _aquariumBounds = new Rectangle(0, 0, GraphicsManager.RESOLUTION_X, GraphicsManager.RESOLUTION_Y);
 
-        public static Random Rnd = new Random();
+        public static Random Random = new Random();
 
         
 
@@ -85,8 +85,8 @@ namespace NibblyFish.Managers
                 EvilFish evilFish = new EvilFish();
 
                 // randomise its location
-                evilFish.X = Rnd.Next(_aquariumBounds.Left, _aquariumBounds.Right);
-                evilFish.Y = Rnd.Next(_aquariumBounds.Top, _aquariumBounds.Bottom);
+                evilFish.X = Random.Next(_aquariumBounds.Left, _aquariumBounds.Right);
+                evilFish.Y = Random.Next(_aquariumBounds.Top, _aquariumBounds.Bottom);
 
                 aquariumScreen.Elements.Add(evilFish);
             }
@@ -97,8 +97,8 @@ namespace NibblyFish.Managers
                 Food food = new Food();
 
                 // randomise its location
-                food.X = Rnd.Next(_aquariumBounds.Left, _aquariumBounds.Right);
-                food.Y = Rnd.Next(_aquariumBounds.Top, _aquariumBounds.Bottom);
+                food.X = Random.Next(_aquariumBounds.Left, _aquariumBounds.Right);
+                food.Y = Random.Next(_aquariumBounds.Top, _aquariumBounds.Bottom);
 
                 aquariumScreen.Elements.Add(food);
             }

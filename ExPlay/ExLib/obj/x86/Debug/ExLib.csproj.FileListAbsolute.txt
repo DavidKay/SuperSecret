@@ -14,3 +14,9 @@ C:\Users\Si\Documents\GitHub\SuperSecret\ExPlay\ExLib\bin\x86\Debug\ExLib.pdb
 C:\Users\Si\Documents\GitHub\SuperSecret\ExPlay\ExLib\obj\x86\Debug\Microsoft.Xna.Framework.RuntimeProfile.txt
 C:\Users\Si\Documents\GitHub\SuperSecret\ExPlay\ExLib\obj\x86\Debug\ExLib.dll
 C:\Users\Si\Documents\GitHub\SuperSecret\ExPlay\ExLib\obj\x86\Debug\ExLib.pdb
+C:\Users\Moppy\Documents\GitHub\SuperSecret\ExPlay\ExLib\bin\x86\Debug\ExLib.dll
+C:\Users\Moppy\Documents\GitHub\SuperSecret\ExPlay\ExLib\bin\x86\Debug\ExLib.pdb
+C:\Users\Moppy\Documents\GitHub\SuperSecret\ExPlay\ExLib\obj\x86\Debug\ResolveAssemblyReference.cache
+C:\Users\Moppy\Documents\GitHub\SuperSecret\ExPlay\ExLib\obj\x86\Debug\Microsoft.Xna.Framework.RuntimeProfile.txt
+C:\Users\Moppy\Documents\GitHub\SuperSecret\ExPlay\ExLib\obj\x86\Debug\ExLib.dll
+C:\Users\Moppy\Documents\GitHub\SuperSecret\ExPlay\ExLib\obj\x86\Debug\ExLib.pdb

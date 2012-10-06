@@ -28,8 +28,8 @@ namespace ExLib.Managers
 
         private static List<Animation> _animationList;
 
-        public const int RESOLUTION_X = 640;
-        public const int RESOLUTION_Y = 480;
+        public const int RESOLUTION_X = 1024;
+        public const int RESOLUTION_Y = 768;
 
         public static int ScreenWidth
         {
@@ -51,8 +51,8 @@ namespace ExLib.Managers
         {
             RenderTarget = new RenderTarget2D(
                 GraphicsDeviceManager.GraphicsDevice,
-                640,
-                480,
+                RESOLUTION_X,
+                RESOLUTION_Y,
                 false,
                 GraphicsDeviceManager.GraphicsDevice.PresentationParameters.BackBufferFormat,
                 DepthFormat.Depth24);
