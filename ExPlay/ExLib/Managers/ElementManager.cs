@@ -29,7 +29,19 @@ namespace ExLib.Managers
 
         internal static void Update(GameTime gameTime)
         {
+            GetScreenElements().Where(c => c.IsKilled).ToList().ForEach(c => RemoveScreenElement(c));
+
             GetScreenElements().Where(c => c is IUpdatable).ToList().ForEach(c => ((IUpdatable)c).Update(gameTime));
+        }
+
+        private static void RemoveScreenElement(Element element)
+        {
+            var screen = FindGameScreenForElement(ExGame.GameRef.GameScreen, element);
+
+            if (screen != null)
+            {
+                FindGameScreenForElement(ExGame.GameRef.GameScreen, element).Elements.Remove(element);
+            }
         }
 
         private static List<Element> GetScreenElements()
@@ -54,6 +66,26 @@ namespace ExLib.Managers
             {
                 RecurseChildren(childScreen, ref combinedElements);
             }
+        }
+
+        private static GameScreen FindGameScreenForElement(GameScreen gameScreen, Element e)
+        {
+            var level = gameScreen;
+
+            if (level.Elements.Contains(e))
+                return level;
+
+            foreach (GameScreen gs in gameScreen.Children)
+            {
+                var result = FindGameScreenForElement(gs, e);
+
+                if (result != null)
+                {
+                    return result;
+                }
+            }
+
+            return null;
         }
 
         public static List<Element> GetIntersections(Rectangle rect)

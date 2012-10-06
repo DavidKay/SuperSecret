@@ -17,7 +17,9 @@ namespace NibblyFish
         public enum Textures
         {
             GreenFrog,
-            background1
+            background1,
+            DiddyFish,
+            Food
         }
 
         public override List<string> TextureList

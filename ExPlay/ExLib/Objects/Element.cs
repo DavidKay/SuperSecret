@@ -16,6 +16,8 @@ namespace ExLib.Objects
 
         public bool IsBackgroundElement { get; set; }
 
+        public int ZIndex {get; set;}
+
         protected double _x;
         protected double _y;
 
@@ -29,11 +31,13 @@ namespace ExLib.Objects
             this.Sprite = sprite;
             this.X = x;
             this.Y = y;
+
+            this.ZIndex = 0;
         }
 
         public Element() : base()
         {
-
+            this.ZIndex = 0;
         }
 
         public virtual void Update(GameTime gameTime)
@@ -44,5 +48,11 @@ namespace ExLib.Objects
             }
         }
 
+        public bool IsKilled = false;
+
+        public void Kill()
+        {
+            IsKilled = true;
+        }
     }
 }

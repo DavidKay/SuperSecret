@@ -14,6 +14,8 @@ namespace NibblyFish.GameScreens
     {
         Viewport GameViewport;
 
+        GameScreen _aquariumScreen;
+
         public override void Update(Microsoft.Xna.Framework.GameTime gameTime)
         {
             
@@ -26,7 +28,13 @@ namespace NibblyFish.GameScreens
 
         public override void Initialise()
         {
-            this.Elements.Add(new Background());
+            //this.Elements.Add(new Background(NibblyFishGame.Textures.background1.ToString()));
+
+            _aquariumScreen = new AquariumScreen();
+
+            this.Children.Add(_aquariumScreen);
+
+            _aquariumScreen.Initialise();
 
             GameViewport = new Viewport(0, 0, (int)(GraphicsManager.RESOLUTION_X * 0.5), (int)(GraphicsManager.RESOLUTION_Y * 0.5), GraphicsManager.RESOLUTION_X, GraphicsManager.RESOLUTION_Y);
         }

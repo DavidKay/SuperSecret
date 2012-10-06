@@ -90,17 +90,13 @@ namespace ExLib.Managers
                 });
         }
 
-        public static void DrawSprite(Sprite sprite, Point location, Color color)
+        public static void DrawSprite(Sprite sprite, Point location)
         {
             SpriteBatch.Draw(
                 sprite.Texture.Texture2D,
                 new Rectangle(location.X, location.Y, sprite.Width, sprite.Height),
-                color);
-        }
+                sprite.Color);
 
-        public static void DrawSprite(Sprite sprite, Point location)
-        {
-            DrawSprite(sprite, location, Color.White);
         }
 
         public static SpriteFont GetFont(string fontName)

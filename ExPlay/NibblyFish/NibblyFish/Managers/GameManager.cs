@@ -5,6 +5,9 @@ using System.Text;
 using ExLib.Bases;
 using Microsoft.Xna.Framework;
 using NibblyFish.GameScreens;
+using NibblyFish.Actors;
+using ExLib.Managers;
+using ExLib.MovementBehaviour.Keyboard;
 
 namespace NibblyFish.Managers
 {
@@ -13,6 +16,8 @@ namespace NibblyFish.Managers
         private static GameScreen _loadingScreen;
         private static GameScreen _inGameScreen;
         private static GameScreen _titleScreen;
+
+        private static GameScreen _aquariumScreen; // sub gamescreen of either titleScreen or inGameScreen
 
         private static CurrentGameState _currentGameState;
 
@@ -59,5 +64,65 @@ namespace NibblyFish.Managers
 
             _titleScreen.Initialise();
         }
+
+        private static List<EvilFish> _evilFish;
+
+        private static int _numEvilFish = 10;
+        private static int _numFood = 20;
+
+        private static Rectangle _aquariumBounds = new Rectangle(0, 0, GraphicsManager.RESOLUTION_X, GraphicsManager.RESOLUTION_Y);
+
+        public static Random Rnd = new Random();
+
+        
+
+        internal static void SetupAquarium(AquariumScreen aquariumScreen)
+        {
+            _evilFish = new List<EvilFish>();
+
+            for (int i = 0; i < _numEvilFish; i++)
+            {
+                EvilFish evilFish = new EvilFish();
+
+                // randomise its location
+                evilFish.X = Rnd.Next(_aquariumBounds.Left, _aquariumBounds.Right);
+                evilFish.Y = Rnd.Next(_aquariumBounds.Top, _aquariumBounds.Bottom);
+
+                aquariumScreen.Elements.Add(evilFish);
+            }
+
+
+            for (int i = 0; i < _numFood; i++)
+            {
+                Food food = new Food();
+
+                // randomise its location
+                food.X = Rnd.Next(_aquariumBounds.Left, _aquariumBounds.Right);
+                food.Y = Rnd.Next(_aquariumBounds.Top, _aquariumBounds.Bottom);
+
+                aquariumScreen.Elements.Add(food);
+            }
+
+            _aquariumScreen = aquariumScreen;
+
+            // Temporary
+            SetupPlayers();
+        }
+
+        internal static void SetupPlayers()
+        {
+            PlayerFish playerFish = new PlayerFish()
+                {
+                    MovementBehaviour = new KeyboardMovementBehaviour(0)
+                };
+
+            playerFish.X = 30;
+            playerFish.Y = 300;
+
+            _aquariumScreen.Elements.Add(playerFish);
+
+            playerFish.Initialize();
+        }
+
     }
 }

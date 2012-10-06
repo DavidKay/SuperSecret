@@ -11,7 +11,7 @@ namespace ExLib.MovementBehaviour.Keyboard
     public class KeyboardMovementBehaviour : IMovementBehaviour
     {
         private KeyboardConfiguration Player1DefaultConfiguration = new KeyboardConfiguration();
-        private KeyboardConfiguration Player2DefaultConfiguration = new KeyboardConfiguration() { Up = Keys.Up, Right = Keys.Right, Left = Keys.Left, Down = Keys.Down };
+        private KeyboardConfiguration Player2DefaultConfiguration = new KeyboardConfiguration() { Up = Keys.Up, Right = Keys.Right, Left = Keys.Left, Down = Keys.Down, ChangeColourRed = Keys.NumPad1, ChangeColourOrange = Keys.NumPad2, ChangeColourBlue = Keys.NumPad3, ChangeColourGreen = Keys.NumPad0 };
 
         public KeyboardConfiguration CurrentKeyConfiguration;
 
@@ -45,6 +45,18 @@ namespace ExLib.MovementBehaviour.Keyboard
 
             if (InputManager.IsKeyDown(CurrentKeyConfiguration.Right))
                 movementList.Add(Movements.MovementsEnum.Right);
+
+            if (InputManager.IsKeyDown(CurrentKeyConfiguration.ChangeColourRed))
+                movementList.Add(Movements.MovementsEnum.ChangeColourRed);
+
+            if (InputManager.IsKeyDown(CurrentKeyConfiguration.ChangeColourOrange))
+                movementList.Add(Movements.MovementsEnum.ChangeColourOrange);
+            
+            if (InputManager.IsKeyDown(CurrentKeyConfiguration.ChangeColourGreen))
+                movementList.Add(Movements.MovementsEnum.ChangeColourGreen);
+            
+            if (InputManager.IsKeyDown(CurrentKeyConfiguration.ChangeColourBlue))
+                movementList.Add(Movements.MovementsEnum.ChangeColourBlue);
 
             return movementList;
         }

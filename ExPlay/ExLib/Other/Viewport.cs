@@ -93,9 +93,15 @@ namespace ExLib.Other
 
             var ElementsOnScreen = ElementManager.GetIntersections(bounds);
 
-            foreach (Element element in ElementsOnScreen)
+            // Get all zindexes
+            List<int> zindexes = ElementsOnScreen.Select(c => c.ZIndex).Distinct().ToList();
+
+            foreach (int index in zindexes)
             {
-                GraphicsManager.DrawSprite(element.Sprite, new Point(element.X + X + (((int)(Width * 0.5)) - CenterX), element.Y + Y + (((int)(Height * 0.5)) - CenterY)));
+                foreach (Element element in ElementsOnScreen.Where(c => c.ZIndex == index))
+                {
+                    GraphicsManager.DrawSprite(element.Sprite, new Point(element.X + X + (((int)(Width * 0.5)) - CenterX), element.Y + Y + (((int)(Height * 0.5)) - CenterY)));
+                }
             }
         }
     }

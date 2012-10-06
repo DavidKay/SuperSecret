@@ -96,6 +96,8 @@
     <Compile Include="Interfaces\IDrawable.cs" />
     <Compile Include="Interfaces\IMovementBehaviour.cs" />
     <Compile Include="Interfaces\IUpdatable.cs" />
+    <Compile Include="MovementBehaviour\GamePad\GamepadConfiguration.cs" />
+    <Compile Include="MovementBehaviour\GamePad\GamepadMovementBehaviour.cs" />
     <Compile Include="Objects\Animation.cs" />
     <Compile Include="Objects\Actor.cs" />
     <Compile Include="Objects\AnimationFrame.cs" />

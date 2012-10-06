@@ -11,11 +11,31 @@ namespace ExLib.Managers
     {
         private static KeyboardState previousKeyboardState;
         private static KeyboardState currentKeyboardState;
+        private static List<GamePadState> currentGamePadStates = new List<GamePadState>();
 
         public static void Update()
         {
             previousKeyboardState = currentKeyboardState;
             currentKeyboardState = Keyboard.GetState();
+            
+            currentGamePadStates.Clear();
+
+            if (GamePad.GetState(PlayerIndex.One).IsConnected)
+            {
+                currentGamePadStates.Add(GamePad.GetState(PlayerIndex.One));
+            }
+            if (GamePad.GetState(PlayerIndex.Two).IsConnected)
+            {
+                currentGamePadStates.Add(GamePad.GetState(PlayerIndex.Two));
+            }
+            if (GamePad.GetState(PlayerIndex.Three).IsConnected)
+            {
+                currentGamePadStates.Add(GamePad.GetState(PlayerIndex.Three));
+            }
+            if (GamePad.GetState(PlayerIndex.Four).IsConnected)
+            {
+                currentGamePadStates.Add(GamePad.GetState(PlayerIndex.Four));
+            }
 
             CheckKeyboardInterrupts();
         }
@@ -40,6 +60,11 @@ namespace ExLib.Managers
         public static bool IsKeyDown(Keys key)
         {
             return currentKeyboardState.IsKeyDown(key);
+        }
+
+        public static bool IsKeyDown(int gamePadIndex, Buttons button)
+        {
+            return currentGamePadStates[gamePadIndex].IsButtonDown(button);
         }
 
         internal static void Initialise()

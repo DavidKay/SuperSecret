@@ -9,8 +9,8 @@ namespace NibblyFish.Elements
 {
     public class Background : Element
     {
-        public Background()
-            : base(GraphicsManager.GetSprite(NibblyFishGame.Textures.background1, GraphicsManager.RESOLUTION_X, GraphicsManager.RESOLUTION_Y), 0, 0)
+        public Background(string texture)
+            : base(GraphicsManager.GetSprite(texture, GraphicsManager.RESOLUTION_X, GraphicsManager.RESOLUTION_Y), 0, 0)
         {
             
         }

@@ -12,7 +12,11 @@ namespace ExLib.MovementBehaviour
             Left = 0,
             Up = 1,
             Right = 2,
-            Down = 3
+            Down = 3,
+            ChangeColourRed = 4,
+            ChangeColourOrange = 5,
+            ChangeColourBlue = 6,
+            ChangeColourGreen = 7
         }
     }
 }

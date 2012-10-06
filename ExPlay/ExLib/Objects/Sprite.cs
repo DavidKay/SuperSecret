@@ -17,6 +17,8 @@ namespace ExLib.Objects
         private int _currentFrame;
         private double _elapsedAnimationMilliseconds;
 
+        public Color Color = Color.White;
+
         public GameTexture Texture
         {
             get

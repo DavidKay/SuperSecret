@@ -107,7 +107,11 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Actors\EvilFish.cs" />
+    <Compile Include="Actors\Food.cs" />
+    <Compile Include="Actors\PlayerFish.cs" />
     <Compile Include="Elements\Background.cs" />
+    <Compile Include="GameScreens\AquariumScreen.cs" />
     <Compile Include="GameScreens\SplashScreen.cs" />
     <Compile Include="GameScreens\TitleScreen.cs" />
     <Compile Include="Managers\GameManager.cs" />
@@ -129,9 +133,7 @@
       <XnaReferenceType>Content</XnaReferenceType>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Actors\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.0,Profile=Client">
       <Visible>False</Visible>
